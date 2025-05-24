@@ -24,7 +24,7 @@ app.use(
 );
 
 app.get("/", (c) => {
-  return c.text("OK");
+  return c.json({ message: "Connection Ok!" });
 });
 
 export default app;

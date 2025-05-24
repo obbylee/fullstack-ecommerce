@@ -1,7 +1,7 @@
 import { handle } from "hono/vercel";
 
 // @ts-expect-error
-import app from "../dist";
+import app from "../dist/src/index.js";
 
 export const runtime = "edge";
 

@@ -12,6 +12,11 @@
 			],
 			"outputs": [
 				"dist/**"
+			],
+			"passThroughEnv": [
+				"CORS_ORIGIN",
+				"DATABASE_URL",
+				"VITE_SERVER_URL"
 			]
 		},
 		"lint": {
