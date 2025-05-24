@@ -7,15 +7,24 @@
     "check-types": "tsc --noEmit",
     "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
     "dev": "bun run --hot src/index.ts",
-    "start": "bun run dist/src/index.js"
+    "start": "bun run dist/src/index.js",
+    "db:docker": "docker-compose up -d",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "prisma db seed"
+  },
+  "prisma": {
+    "seed": "bun prisma/seed.ts"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "zod": "^3.24.2",
-    "@trpc/server": "^11.0.0",
-    "@trpc/client": "^11.0.0",
     "@hono/trpc-server": "^0.3.4",
-    "hono": "^4.7.6"
+    "@prisma/client": "^6.8.2",
+    "@trpc/client": "^11.0.0",
+    "@trpc/server": "^11.0.0",
+    "dotenv": "^16.4.7",
+    "hono": "^4.7.6",
+    "prisma": "^6.8.2",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "tsc-alias": "^1.8.11",

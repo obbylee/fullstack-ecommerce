@@ -8,13 +8,12 @@ import {
 } from "react-router";
 import type { Route } from "./+types/root";
 import "./index.css";
-import Header from "./components/header";
 import { ThemeProvider } from "./components/theme-provider";
 import { Toaster } from "./components/ui/sonner";
 
-    import { QueryClientProvider } from "@tanstack/react-query";
-    import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-      import { queryClient } from "./utils/trpc";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { queryClient } from "./utils/trpc";
 
 export const links: Route.LinksFunction = () => [
   {
@@ -50,20 +49,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-  export default function App() {
-    return (
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-          <div className="grid grid-rows-[auto_1fr] h-svh">
-            <Header />
-            <Outlet />
-          </div>
-          <Toaster richColors />
-        </ThemeProvider>
-        <ReactQueryDevtools position="bottom" buttonPosition="bottom-right" />
-      </QueryClientProvider>
-    );
-  }
+export default function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <Outlet />
+        <Toaster richColors />
+      </ThemeProvider>
+      <ReactQueryDevtools position="bottom" buttonPosition="bottom-right" />
+    </QueryClientProvider>
+  );
+}
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
