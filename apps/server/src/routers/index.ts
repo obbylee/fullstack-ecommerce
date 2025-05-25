@@ -1,7 +1,6 @@
 import { z } from "zod";
 import prisma from "prisma";
 import { publicProcedure, router } from "../lib/trpc";
-import type { minimum } from "zod/v4-mini";
 
 export const appRouter = router({
   healthCheck: publicProcedure.query(() => {

@@ -1,10 +1,7 @@
-import { PrismaClient } from "./generated/prisma/client";
+import { PrismaClient } from "src/generated/prisma/client";
 import { Products } from "./data/products";
 
-const prisma = new PrismaClient({
-  log: ["query", "info", "warn", "error"],
-});
-// https://api.dicebear.com/9.x/adventurer-neutral/svg?seed=${user.username}&size=64
+const prisma = new PrismaClient();
 
 async function main() {
   await prisma.product.createMany({
